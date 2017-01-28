@@ -1,0 +1,61 @@
+<!--
+Name: Joshua Dusome
+Date: 01/12/2016
+Website: https://shopping-list-app-josh.herokuapp.com/
+File: header.ejs
+Purpose: Header.ejs is a shared header. It opens up our html document, and contains the head aswell as opening body and navbar.
+It also loads our stylesheets.
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css"/>
+    <!-- CDN for DataTables stylesheet  -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+
+    <!-- Text -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+</head>
+<body class="backgroundgrad">
+
+<!-- Shared navbar -->
+<nav class="nav navbar-inverse">
+    <ul class="nav navbar-nav">
+        <li><a href="/">HOME</a></li>
+        <!-- If the user is logged in -->
+        <% if (user) { %>
+        <li><a href="/shopping-list">SHOPPING LIST</a></li>
+        <li><a href="/item-list">ITEM LIST</a></li>
+    </ul>
+
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <p class="navbar-text">Welcome <%= user.username %></p>
+            <li><a href="/logout">LOGOUT</a></li>
+            <!-- Else there is no user logged in -->
+            <%
+            }
+            else {
+            %>
+        </ul>
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/register">REGISTER</a></li>
+                <% } %>
+            </ul>
+    </div>
+</nav>
+
+
+
+
+

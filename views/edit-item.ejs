@@ -1,0 +1,56 @@
+<!--
+Name: Joshua Dusome
+Date: 01/12/2016
+Website: https://shopping-list-app-josh.herokuapp.com/
+File: edit-item.ejs
+Purpose: Edit-item.ejs is our view that allows a user to edit an existing item, and update the product collection.
+-->
+
+<!-- Include shared header -->
+<% include partials/header.ejs %>
+
+<div class="row">
+    <!-- Creates a column 4/12 wide on the left side -->
+    <div class="col-md-4">
+    </div>
+
+    <!-- Creates a column 4/12 wide in the middle -->
+    <div class="col-md-4 highlightborder1 whitefill toppaddingmin boxshade">
+        <h1 class="alteritempadding"><%= title %></h1>
+
+        <!-- POST - METHOD, the form will post to itself or other page -->
+        <form method= "post">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name:</label>
+                <input name="name" id="name" class="formmarginleft" required value="<%= product.name %>"/>
+            </div>
+            <div class="form-group">
+                <label for="department" class="col-sm-2 control-label">Department:</label>
+                <select name="department" id="department" class="formmarginleft" >
+                    <!-- add our different departments as options -->
+                    <% var departments = ['Bakery', 'Baking', 'Beverage','Bulk','Deli','Frozen','Grocery','Health','Meat','Produce','Seafood','Specialty','Vegetarian'];
+                    var selected = '';
+                    for (var i = 0; i<departments.length; i++){
+                        if (departments[i] == product.department) {
+                            selected = ' selected';
+                        }
+                        else {
+                            selected = '';
+                        }
+                    %>
+                    <!-- Select the appropriate option -->
+                    <option<%= selected %>><%= departments[i] %></option>
+                    <% } %>
+                </select>
+                <button class="btn btn-success btn-lg buttonmarginbottom pull-right">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Creates a column 4/12 wide on the right side -->
+    <div class="col-md-4">
+    </div>
+</div>
+
+<!-- Include shared footer -->
+<% include partials/footer.ejs %>

@@ -1,0 +1,99 @@
+.highlightborder1 {
+    border-style: solid;
+    border-width: 5px;
+    color: black;
+;}
+
+.buttonmarginbottom {
+    margin-bottom: 5px;
+}
+
+.formmarginleft {
+    margin-left: 40px;
+}
+
+.hideclass {
+    display: none;
+}
+
+.deptheader {
+    padding-left: 20px;
+}
+
+.deptitems {
+    padding-left: 30px;
+}
+
+
+.backgroundgrad {
+    background: linear-gradient(white, #71BF23);
+}
+
+.removescroll {
+    margin: 0 auto;
+}
+
+html, body {
+    height: 100%;
+}
+
+.footercolour {
+    background: linear-gradient(#71BF23, #4B7F17);
+    background-color: #4B7F17;
+}
+
+.itemlistpadding {
+    padding-top: 2%;
+}
+
+.alteritempadding {
+    padding-bottom: 4%;
+}
+
+.toppadding {
+    margin-top:12%;
+}
+
+.toppaddingmin {
+    margin-top:2%;
+}
+
+.logregmargin {
+    margin-top: -5%;
+    padding-bottom: 5%;
+}
+
+.logregmarginleft {
+    margin-left: 30%;
+}
+
+.whitefill {
+    background-color: white;
+}
+
+.boxshade {
+    box-shadow: -10px 10px 15px #26400C;
+    border-radius: 15px;
+}
+
+.roundbox {
+    border-radius: 15px;
+}
+
+.loginbox {
+    box-shadow: -10px 10px 15px #26400C;
+}
+
+.listentry {
+    margin-left: 20px;
+    list-style-type: none;
+}
+
+#confirm-error {
+    margin-left: 30%;
+    margin-top: 2%
+}
+
+.ffont {
+    font-family: 'Oswald', sans-serif;
+}

@@ -1,0 +1,56 @@
+<!--
+Name: Joshua Dusome
+Date: 01/12/2016
+Website: https://shopping-list-app-josh.herokuapp.com/
+File: item-list.ejs
+Purpose: Item-list.ejs provides user with a list of products, with full CRUD functionality
+-->
+
+<!-- Include shared header -->
+<% include partials/header.ejs %>
+
+<main class="row removescroll">
+
+    <!-- Creates a column 4/12 wide on the left side -->
+    <div class="col-md-4 container-fluid">
+    </div>
+
+    <!-- Creates a column 4/12 wide in the middle -->
+    <div class="col-md-4 highlightborder1 whitefill container-fluid toppaddingmin boxshade">
+        <h1><%= title %>
+            <div class="pull-right">
+                <a href="/item-list/add-item"><button type="button" class="btn btn-primary btn-md buttonmarginbottom">New Item</button></a>
+            </div>
+        </h1>
+        <!-- Create our item list -->
+        <table id="itemtable" class="display itemlistpadding">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% for (var i=0; i < products.length; i++) { %>
+            <tr>
+                <td><%= products[i].name %></td>
+                <td><%= products[i].department %></td>
+                <td><a href="/item-list/edit-item/<%= products[i]._id %>">Edit</a></td>
+                <!-- Add a JQuery confirmation attribute -->
+                <td><a href="/item-list/delete-item/<%= products[i]._id %>" class="confirmation">Delete</a></td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Creates a column 4/12 wide on the right side -->
+    <div class="col-md-4 container-fluid">
+    </div>
+
+</main>
+
+<!-- Include shared footer -->
+<% include partials/footer.ejs %>

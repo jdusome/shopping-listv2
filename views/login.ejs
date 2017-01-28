@@ -1,0 +1,57 @@
+<!--
+Name: Joshua Dusome
+Date: 01/12/2016
+Website: https://shopping-list-app-josh.herokuapp.com/
+File: login.ejs
+Purpose: Login.ejs is our view that allows a user to login locally, or through github/twitter.
+-->
+
+<!-- Include shared header -->
+<% include partials/header.ejs %>
+
+<main class="row removescroll">
+
+    <!-- Creates a column 4/12 wide on the left side -->
+    <div class="col-md-4">
+    </div>
+
+    <!-- Creates a column 4/12 wide in the middle -->
+    <div class="col-md-4 toppadding jumbotron loginbox">
+
+        <h1 class="text-center logregmargin">Login</h1>
+        <!-- If there is an error with the login, alert the user -->
+        <% if (messages.length > 0) { %>
+        <div class="alert alert-danger"><%= messages %></div>
+        <% } %>
+        <!-- Create login form -->
+        <form method="post">
+            <div class="form-group">
+                <label for="username" class="col-sm-2 col-sm-offset-3 control-label">Username:</label>
+                <input name="username" id="username" required />
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 col-sm-offset-3 control-label">Password:</label>
+                <input name="password" id="password" type="password" required />
+            </div>
+            <div class="btn-group col-lg-offset-5 col-lg-4">
+            <button class="btn btn-success">Login</button>
+                <a href="/register" title="Register">
+            <button class="btn btn-info" type="button">Register</button>
+                    </a>
+            </div>
+        </form>
+        <a href="/github" alt="Login with Github">
+            <img src="images/github-icon.png">
+        </a>
+        <a href="/twitter" alt="Login with Twitter">
+            <img src="images/twitter-icon.png">
+        </a>
+        </div>
+
+    <!-- Creates a column 4/12 wide on the right side -->
+    <div class="col-md-4">
+    </div>
+</main>
+
+<!-- Include shared footer -->
+<% include partials/footer.ejs %>

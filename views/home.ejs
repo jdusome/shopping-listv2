@@ -1,0 +1,269 @@
+<!--
+Name: Joshua Dusome
+Date: 01/12/2016
+Website: https://shopping-list-app-josh.herokuapp.com/
+File: home.ejs
+Purpose: Home.ejs is our view that shows our shopping list (without any CRUD functionality). User does not need to be logged in.
+-->
+
+<!-- Include shared header -->
+<% include partials/header.ejs %>
+
+<main class="row removescroll">
+
+    <!-- Creates a column 3/12 wide on the left side -->
+    <div class="col-md-3">
+    </div>
+
+    <!-- Creates a column 6/12 wide in the middle -->
+    <div class="col-md-6">
+        <h1 class="text-center"><%= title %></h1>
+        <div class="highlightborder1 whitefill roundbox boxshade">
+            <!-- Id that could be utilized for printing the page, may not have time to add this functionality -->
+            <div id="printlist">
+
+                <h2 class="text-center">Shopping List</h2>
+                <hr>
+
+            <%
+                //Create showProduct and department arrays to handle shopping list logic
+            var showProduce = "hideclass";
+            var showVegetarian = "hideclass";
+            var showDeli = "hideclass";
+            var showMeat = "hideclass";
+            var showSeafood = "hideclass";
+            var showBaking = "hideclass";
+            var showGrocery = "hideclass";
+            var showBakery = "hideclass";
+            var showBeverage = "hideclass";
+            var showFrozen = "hideclass";
+            var showHealth = "hideclass";
+            var showBulk = "hideclass";
+            var showSpecialty = "hideclass";
+            var showUnknown = "hideclass";
+
+            var produce = [];
+            var vegetarian = [];
+            var deli = [];
+            var meat = [];
+            var seafood = [];
+            var baking = [];
+            var grocery = [];
+            var bakery = [];
+            var beverage = [];
+            var frozen = [];
+            var health = [];
+            var bulk = [];
+            var specialty = [];
+            var unknown = [];
+            %>
+
+            <% for (var i=0; i < listEntries.length; i++) {
+
+                var _id = listEntries[i]._id;
+                var quantity = listEntries[i].quantity;
+
+                //match our shopping list  _id with the proper product
+
+                for (var k=0; k < products.length; k++) {
+
+                    //if our product _id matches, assign variables accordingly
+                    if ( (products[k]._id).toString() == (_id).toString() ){
+
+                        var department = products[k].department;
+                        var name = products[k].name;
+                        k = k + products.length + 1;
+
+                    }
+
+                }
+
+                switch(department) {
+                    //switch based on the department of each item
+                    case "Produce":
+                        showProduce = "";
+                        produce.push(quantity + " " + name);
+                        break;
+                    case "Vegetarian":
+                        showVegetarian = "";
+                        vegetarian.push(quantity + " " + name);
+                        break;
+                    case "Deli":
+                        showDeli = "";
+                        deli.push(quantity + " " + name);
+                        break;
+                    case "Meat":
+                        showMeat = "";
+                        meat.push(quantity + " " + name);
+                        break;
+                    case "Seafood":
+                        showSeafood = "";
+                        seafood.push(quantity + " " + name);
+                        break;
+                    case "Baking":
+                        showBaking = "";
+                        baking.push(quantity + " " + name);
+                        break;
+                    case "Grocery":
+                        showGrocery = "";
+                        grocery.push(quantity + " " + name);
+                        break;
+                    case "Bakery":
+                        showBakery = "";
+                        bakery.push(quantity + " " + name);
+                        break;
+                    case "Beverage":
+                        showBeverage = "";
+                        beverage.push(quantity + " " + name);
+                        break;
+                    case "Frozen":
+                        showFrozen = "";
+                        frozen.push(quantity + " " + name);
+                        break;
+                    case "Health":
+                        showHealth = "";
+                        health.push(quantity + " " + name);
+                        break;
+                    case "Bulk":
+                        showBulk = "";
+                        bulk.push(quantity + " " + name);
+                        break;
+                    case "Specialty":
+                        showSpecialty = "";
+                        specialty.push(quantity + " " + name);
+                        break;
+                    default:
+                        showUnknown = "";
+                        unknown.push(quantity + " " + name);
+                        ;
+
+                }
+            %>
+
+            <% } %>
+            <!-- Display our ShoppingList -->
+            <h3 class="deptheader <%= showProduce %>">Produce</h3>
+            <%
+            for (var i=0; i < produce.length; i++) {
+            %>
+            <li class="listentry"><%= produce[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showVegetarian %>">Vegetarian</h3>
+            <%
+            for (var i=0; i < vegetarian.length; i++) {
+            %>
+            <li class="listentry"><%= vegetarian[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showDeli %>">Deli</h3>
+            <%
+            for (var i=0; i < deli.length; i++) {
+            %>
+            <li class="listentry"><%= deli[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showMeat %>">Meat</h3>
+            <%
+            for (var i=0; i < meat.length; i++) {
+            %>
+            <li class="listentry"><%= meat[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showSeafood %>">Seafood</h3>
+            <%
+            for (var i=0; i < seafood.length; i++) {
+            %>
+            <li class="listentry"><%= seafood[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showBaking %>">Baking</h3>
+            <%
+            for (var i=0; i < baking.length; i++) {
+            %>
+            <li class="listentry"><%= baking[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showGrocery %>">Grocery</h3>
+            <%
+            for (var i=0; i < grocery.length; i++) {
+            %>
+            <li class="listentry"><%= grocery[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showBakery %>">Bakery</h3>
+            <%
+            for (var i=0; i < bakery.length; i++) {
+            %>
+            <li class="listentry"><%= bakery[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showBeverage %>">Beverage</h3>
+            <%
+            for (var i=0; i < beverage.length; i++) {
+            %>
+            <li class="listentry"><%= beverage[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showFrozen %>">Frozen</h3>
+            <%
+            for (var i=0; i < frozen.length; i++) {
+            %>
+            <li class="listentry"><%= frozen[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showHealth %>">Health</h3>
+            <%
+            for (var i=0; i < health.length; i++) {
+            %>
+            <li class="listentry"><%= health[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showBulk %>">Bulk</h3>
+            <%
+            for (var i=0; i < bulk.length; i++) {
+            %>
+            <li class="listentry"><%= bulk[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showSpecialty %>">Specialty</h3>
+            <%
+            for (var i=0; i < specialty.length; i++) {
+            %>
+            <li class="listentry"><%= specialty[i] %></li>
+            <%
+            }
+            %>
+            <h3 class="deptheader <%= showUnknown %>">Unknown</h3>
+            <%
+            for (var i=0; i < unknown.length; i++) {
+            %>
+            <li class="listentry"><%= unknown[i] %></li>
+            <%
+            }
+            %>
+
+            <br />
+            </div>
+            </div>
+    </div>
+    <!-- Creates a column 3/12 wide on the right side -->
+    <div class="col-md-3">
+    </div>
+</main>
+
+<!-- Include shared footer -->
+<% include partials/footer.ejs %>
+
